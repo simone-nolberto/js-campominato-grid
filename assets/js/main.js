@@ -18,11 +18,13 @@ function createGrid() {
 
     }
 
+
+
     return container
 
 }
 
-createGrid ()
+button.addEventListener("click", createGrid)
 
 
 // button.addEventListener('click', createGrid ());
