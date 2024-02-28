@@ -3,7 +3,7 @@ const container = document.getElementById('container');
 
 const maxCellsNumb = 100;
 
-const markup = `<div class="box"></div>`;
+const markup = `<div class="box df"></div>`;
 
 const button = document.querySelector('.btn-play');
 button.addEventListener("click", createGrid);

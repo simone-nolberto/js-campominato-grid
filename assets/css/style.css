@@ -39,6 +39,8 @@ img{
     height: 100px;
     background-color: white;
     border: 1px solid;
+    justify-content: center;
+    align-items: center;
 }
 
 .bg{
