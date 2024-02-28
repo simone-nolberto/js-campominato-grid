@@ -58,11 +58,9 @@ function createGrid() {
 let numberArray = [];
 
 
-for (let i = 0; i <= 100; i++){
+for (let i = 1; i <= 100; i++){
     
-    numberArray.push(i++)
-
-    
+    numberArray.push(i)
 }
 
 console.log(numberArray);
