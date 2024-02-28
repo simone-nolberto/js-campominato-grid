@@ -5,22 +5,32 @@ const container = document.getElementById('container');
 
 const maxCellsNumb = 100;
 
-const markup = `<div class="box"></div>`;
+let markupContent = [];
 
-let markupContent = 0;
+const markup = `<div class="box">${markupContent}</div>`;
+
+
+let boxElements = document.getElementsByClassName('box');
 
 const button = document.querySelector('.btn-play');
-button.addEventListener("click", createGrid)
+button.addEventListener("click", createGrid);
 
 function createGrid() {
 
+    for (let i = 1; i <= 100; i++) {
+
+        markupContent.push(i);
+    }
+
+    console.log(markupContent);
+
+
     for (let i = 0; i <= maxCellsNumb; i++) {
 
-        container.insertAdjacentHTML('beforeend', markup);
+        container.insertAdjacentHTML('beforeend', markup)
 
     }
 
-    const boxElements = document.getElementsByClassName('box');
     // console.log(boxElements);
 
     for (let i = 0; i < boxElements.length; i++) {
@@ -38,29 +48,4 @@ function createGrid() {
 
 }
 
-// const numbArray = [];
 
-// for (let i = 0; i < maxCellsNumb; i++) {
-
-//     function getRndInteger(min, max) {
-//         return Math.floor((max - min) ) + min;
-//       }
-
-//     const randomNumber = Math.floor(Math.random() * 100) +1;
-//     console.log(randomNumber);
-//     numbArray.push(randomNumber);
-
-// }
-
-// console.log(getRndInteger(1, 100));
-
-
-let numberArray = [];
-
-
-for (let i = 1; i <= 100; i++){
-    
-    numberArray.push(i)
-}
-
-console.log(numberArray);
