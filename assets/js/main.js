@@ -1,45 +1,30 @@
-console.log("It works!");
-
 const container = document.getElementById('container');
 // console.log(container);
 
 const maxCellsNumb = 100;
 
-let markupContent = [];
-
-const markup = `<div class="box">${markupContent}</div>`;
-
-
-let boxElements = document.getElementsByClassName('box');
+const markup = `<div class="box"></div>`;
 
 const button = document.querySelector('.btn-play');
 button.addEventListener("click", createGrid);
 
 function createGrid() {
 
-    for (let i = 1; i <= 100; i++) {
+    container.innerHTML = '';
 
-        markupContent.push(i);
-    }
-
-    console.log(markupContent);
-
-
-    for (let i = 0; i <= maxCellsNumb; i++) {
-
+    for (let i = 0; i < maxCellsNumb; i++) {
         container.insertAdjacentHTML('beforeend', markup)
-
     }
 
     // console.log(boxElements);
-
+    let boxElements = document.getElementsByClassName('box');
     for (let i = 0; i < boxElements.length; i++) {
         const element = boxElements[i];
+        element.innerHTML= i + 1;
 
         element.addEventListener('click', function (e) {
-
             element.classList.toggle('bg');
-
+            console.log(element.innerText);
         })
 
     };
