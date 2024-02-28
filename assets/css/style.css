@@ -44,3 +44,15 @@ img{
 .bg{
     background-color: aqua;
 }
+
+
+main{
+    min-height: 1100px;
+}
+
+footer {
+
+    & > p {
+        margin-left: 1rem ;
+    }
+}
