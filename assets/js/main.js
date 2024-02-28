@@ -9,11 +9,22 @@ const markup = `<div class="box"></div>`;
 
 const button = document.querySelector('btn-play');
 
-button.addEventListener('click', function (e) {
+
+function createGrid() {
+
     for (let i = 0; i < maxCellsNumb; i++) {
+
         container.insertAdjacentHTML('beforeend', markup);
 
     }
 
-})
+    return container
+
+}
+
+createGrid ()
+
+
+// button.addEventListener('click', createGrid ());
+
 
