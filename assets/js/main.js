@@ -5,8 +5,11 @@ const maxCellsNumb = 100;
 
 const markup = `<div class="box df"></div>`;
 
+const resultsOutput = document.querySelector('.results-box')
+
 const button = document.querySelector('.btn-play');
 button.addEventListener("click", createGrid);
+
 
 let mushroomArray = [];
 let clearCellsClicked = [];
@@ -18,13 +21,13 @@ for (i = 1; i <= 16; i++) {
     mushroomArray.push(element);
 
     if (mushroomArray.includes(element)) {
-        console.log("numero già trovato");
+
     } else {
         mushroomArray.push(element)
     }
 }
 
-console.log(mushroomArray);
+// console.log(mushroomArray);
 
 function createGrid() {
 
@@ -37,12 +40,12 @@ function createGrid() {
 
 
     let boxElements = document.getElementsByClassName('box');
-    console.log(boxElements);
+    // console.log(boxElements);
 
     for (let i = 0; i < boxElements.length; i++) {
         const element = boxElements[i];
         element.innerHTML = i + 1;
-        console.log(element.innerHTML);
+        // console.log(element.innerHTML);
 
 
         element.addEventListener('click', function (e) {
@@ -50,21 +53,28 @@ function createGrid() {
             if (mushroomArray.includes(i + 1)) {
                 element.classList.add('red');
                 element.innerHTML = "🍄";
-                loserCell.push(i + 1)
+                loserCell.push(i + 1);
+                console.log(loserCell);
+                resultsOutput.innerHTML = `Hai trovato ${clearCellsClicked.length} celle valide. Clicca su "Gioca" per riprovare!`
+                // console.log(`Hai trovato ${clearCellsClicked.length} celle valide`);
+                element.removeEventListener('click',)
 
             } else {
                 element.classList.add('clear');
                 clearCellsClicked.push(i + 1,)
-                console.log(clearCellsClicked);
+                // console.log(clearCellsClicked);
+
+
             }
+
 
             if (clearCellsClicked.length == (maxCellsNumb - mushroomArray.length)) {
+
                 console.log("You won!");
             } else if (loserCell.length == 1) {
+
                 console.log("You lose");
             }
-
-
 
         })
 
