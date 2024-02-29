@@ -9,18 +9,20 @@ const button = document.querySelector('.btn-play');
 button.addEventListener("click", createGrid);
 
 let mushroomArray = [];
+let clearCellsClicked = [];
+let loserCell = [];
 
-    for (i = 1; i <= 16; i++) {
+for (i = 1; i <= 16; i++) {
 
-        const element = Math.floor(Math.random() * (100 - 1) + 1);
-        mushroomArray.push (element);
+    const element = Math.floor(Math.random() * (100 - 1) + 1);
+    mushroomArray.push(element);
 
-        if (mushroomArray.includes(element)) {
-            
-        } else {
-            mushroomArray.push(element)
-        }
+    if (mushroomArray.includes(element)) {
+        console.log("numero già trovato");
+    } else {
+        mushroomArray.push(element)
     }
+}
 
 console.log(mushroomArray);
 
@@ -35,22 +37,34 @@ function createGrid() {
 
 
     let boxElements = document.getElementsByClassName('box');
-    // console.log(boxElements);
+    console.log(boxElements);
+
     for (let i = 0; i < boxElements.length; i++) {
         const element = boxElements[i];
         element.innerHTML = i + 1;
-        console.log(element.innerText);
+        console.log(element.innerHTML);
+
 
         element.addEventListener('click', function (e) {
-            element.classList.add('active');
-            let activeBox = document.getElementsByClassName('active');
 
+            if (mushroomArray.includes(i + 1)) {
+                element.classList.add('red');
+                element.innerHTML = "🍄";
+                loserCell.push(i + 1)
 
-            if (mushroomArray.includes(element.innerText)) {
-                element.classList.add('bg-red');
             } else {
-                element.classList.add('bg-clear');
+                element.classList.add('clear');
+                clearCellsClicked.push(i + 1,)
+                console.log(clearCellsClicked);
             }
+
+            if (clearCellsClicked.length == (maxCellsNumb - mushroomArray.length)) {
+                console.log("You won!");
+            } else if (loserCell.length == 1) {
+                console.log("You lose");
+            }
+
+
 
         })
 
