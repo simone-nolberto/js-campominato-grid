@@ -43,7 +43,11 @@ img{
     align-items: center;
 }
 
-.bg{
+.bg-red{
+    background-color: red;
+}
+
+.bg-clear{
     background-color: aqua;
 }
 

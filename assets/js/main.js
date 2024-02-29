@@ -8,7 +8,23 @@ const markup = `<div class="box df"></div>`;
 const button = document.querySelector('.btn-play');
 button.addEventListener("click", createGrid);
 
+let mushroomArray = [];
+
+function getRandomNumber(min, max) {
+
+    for (i = 1; i <= 16; i++) {
+        mushroomArray.push(Math.floor(Math.random() * (max - min) + min))
+
+    }
+
+    return mushroomArray;
+
+}
+
+console.log(getRandomNumber(1, 100));
+
 function createGrid() {
+
 
     container.innerHTML = '';
 
@@ -16,17 +32,26 @@ function createGrid() {
         container.insertAdjacentHTML('beforeend', markup)
     }
 
-    // console.log(boxElements);
+
     let boxElements = document.getElementsByClassName('box');
+    // console.log(boxElements);
     for (let i = 0; i < boxElements.length; i++) {
         const element = boxElements[i];
-        element.innerHTML= i + 1;
+        element.innerHTML = i + 1;
 
         element.addEventListener('click', function (e) {
-            element.classList.toggle('bg');
-            console.log(element.innerText);
-        })
+            element.classList.add('active');
+            let activeBox = document.getElementsByClassName('active');
 
+
+            if (mushroomArray.includes(activeBox.innerText)) {
+                element.classList.add('bg-red');
+            } else {
+                element.classList.add('bg-clear');
+            }
+
+        })
+        console.log(element.innerText);
     };
 
     return container
