@@ -13,7 +13,12 @@ let mushroomArray = [];
 function getRandomNumber(min, max) {
 
     for (i = 1; i <= 16; i++) {
-        mushroomArray.push(Math.floor(Math.random() * (max - min) + min))
+        const element = Math.floor(Math.random() * (max - min) + min);
+
+        if (mushroomArray.includes(element)) {
+            mushroomArray.push(element)
+        }
+
 
     }
 
