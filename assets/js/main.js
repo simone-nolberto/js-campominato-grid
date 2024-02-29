@@ -33,6 +33,7 @@ function createGrid() {
 
 
     container.innerHTML = '';
+    resultsOutput.innerHTML = '';
 
     for (let i = 0; i < maxCellsNumb; i++) {
         container.insertAdjacentHTML('beforeend', markup)
@@ -55,9 +56,6 @@ function createGrid() {
                 element.innerHTML = "🍄";
                 loserCell.push(i + 1);
                 console.log(loserCell);
-                resultsOutput.innerHTML = `Hai trovato ${clearCellsClicked.length} celle valide. Clicca su "Gioca" per riprovare!`
-                // console.log(`Hai trovato ${clearCellsClicked.length} celle valide`);
-                element.removeEventListener('click',)
 
             } else {
                 element.classList.add('clear');
@@ -69,11 +67,10 @@ function createGrid() {
 
 
             if (clearCellsClicked.length == (maxCellsNumb - mushroomArray.length)) {
+                resultsOutput.innerHTML = "Complimenti, hai vinto!"
 
-                console.log("You won!");
             } else if (loserCell.length == 1) {
-
-                console.log("You lose");
+                resultsOutput.innerHTML = `Hai trovato ${clearCellsClicked.length} celle valide, ma hai perso. Clicca su "Gioca" per riprovare!`
             }
 
         })
