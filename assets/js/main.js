@@ -5,7 +5,7 @@ const maxCellsNumb = 100;
 
 const markup = `<div class="box df"></div>`;
 
-const resultsOutput = document.querySelector('.results-box')
+const resultsOutput = document.querySelector('.results-box');
 
 const button = document.querySelector('.btn-play');
 button.addEventListener("click", createGrid);
@@ -15,23 +15,31 @@ let mushroomArray = [];
 let clearCellsClicked = [];
 let loserCell = [];
 
-for (i = 1; i <= 16; i++) {
+function generateMushroom() {
 
-    const element = Math.floor(Math.random() * (100 - 1) + 1);
-    mushroomArray.push(element);
+    let mArray = [];
 
-    if (mushroomArray.includes(element)) {
+    for (i = 1; i <= 16; i++) {
 
-    } else {
-        mushroomArray.push(element)
+        const element = Math.floor(Math.random() * (100 - 1) + 1);
+        mArray.push(element);
+
+        if (mArray.includes(element)) {
+
+        } else {
+            mArray.push(element)
+        }
     }
-}
+    
+    return mArray;
 
-// console.log(mushroomArray);
+}
 
 function createGrid() {
 
-
+    mushroomArray = generateMushroom();
+    clearCellsClicked = [];
+    loserCell = [];
     container.innerHTML = '';
     resultsOutput.innerHTML = '';
 
@@ -65,12 +73,14 @@ function createGrid() {
 
             }
 
+            console.log(loserCell.length);
+
 
             if (clearCellsClicked.length == (maxCellsNumb - mushroomArray.length)) {
                 resultsOutput.innerHTML = "Complimenti, hai vinto!"
 
             } else if (loserCell.length == 1) {
-                resultsOutput.innerHTML = `Hai trovato ${clearCellsClicked.length} celle valide, ma hai perso. Clicca su "Gioca" per riprovare!`
+                document.querySelector('.results-box').innerHTML = `Hai trovato ${clearCellsClicked.length} celle valide, ma hai perso. Clicca su "Gioca" per riprovare!`
             }
 
         })
