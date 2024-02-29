@@ -10,25 +10,19 @@ button.addEventListener("click", createGrid);
 
 let mushroomArray = [];
 
-function getRandomNumber(min, max) {
-
     for (i = 1; i <= 16; i++) {
 
-        const element = Math.floor(Math.random() * (max - min) + min);
+        const element = Math.floor(Math.random() * (100 - 1) + 1);
         mushroomArray.push (element);
 
         if (mushroomArray.includes(element)) {
-            console.log("numero non aggiunto");
+            
         } else {
             mushroomArray.push(element)
         }
     }
 
-    return mushroomArray;
-
-}
-
-console.log(getRandomNumber(1, 100));
+console.log(mushroomArray);
 
 function createGrid() {
 
@@ -45,20 +39,21 @@ function createGrid() {
     for (let i = 0; i < boxElements.length; i++) {
         const element = boxElements[i];
         element.innerHTML = i + 1;
+        console.log(element.innerText);
 
         element.addEventListener('click', function (e) {
             element.classList.add('active');
             let activeBox = document.getElementsByClassName('active');
 
 
-            if (mushroomArray.includes(activeBox.innerText)) {
+            if (mushroomArray.includes(element.innerText)) {
                 element.classList.add('bg-red');
             } else {
                 element.classList.add('bg-clear');
             }
 
         })
-        console.log(element.innerText);
+
     };
 
     return container
