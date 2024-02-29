@@ -15,10 +15,10 @@ function getRandomNumber(min, max) {
     for (i = 1; i <= 16; i++) {
 
         const element = Math.floor(Math.random() * (max - min) + min);
+        mushroomArray.push (element);
 
         if (mushroomArray.includes(element)) {
-            console.log("prossimo numero");
-
+            console.log("numero non aggiunto");
         } else {
             mushroomArray.push(element)
         }
