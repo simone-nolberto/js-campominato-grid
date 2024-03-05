@@ -78,9 +78,10 @@ function createGrid() {
                 resultsOutput.innerHTML = "Complimenti, hai vinto!"
 
             } else if (loserCell.length == 1) {
-                document.querySelector('.results-box').innerHTML = `Hai trovato ${clearCellsClicked.length} celle valide, ma hai perso. Clicca su "Gioca" per riprovare!`
+                document.querySelector('.results-box').innerHTML = `Hai trovato ${clearCellsClicked.length} celle valide, ma hai perso. Clicca su "Gioca" per riprovare!`;
+                
                 element.removeEventListener('click', function () {
-                   
+
                 })
             }
 
