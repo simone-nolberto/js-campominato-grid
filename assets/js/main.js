@@ -30,7 +30,7 @@ function generateMushroom() {
             mArray.push(element)
         }
     }
-    
+
     return mArray;
 
 }
@@ -69,8 +69,6 @@ function createGrid() {
                 element.classList.add('clear');
                 clearCellsClicked.push(i + 1,)
                 // console.log(clearCellsClicked);
-
-
             }
 
             console.log(loserCell.length);
@@ -81,6 +79,9 @@ function createGrid() {
 
             } else if (loserCell.length == 1) {
                 document.querySelector('.results-box').innerHTML = `Hai trovato ${clearCellsClicked.length} celle valide, ma hai perso. Clicca su "Gioca" per riprovare!`
+                element.removeEventListener('click', function () {
+                   
+                })
             }
 
         })
